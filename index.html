@@ -1,0 +1,101 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+  <title>Kaais Taylor | Portfolio</title>
+  <link rel="stylesheet" href="style.css" />
+</head>
+<body>
+  <header class="header">
+    <nav class="navbar">
+      <a href="#home" class="logo">Kaais Taylor</a>
+      <ul class="nav-links">
+        <li><a href="#about">About</a></li>
+        <li><a href="#projects">Projects</a></li>
+        <li><a href="#contact">Contact</a></li>
+      </ul>
+    </nav>
+  </header>
+
+  <main>
+    <section id="home" class="hero">
+      <div class="hero-content">
+        <p class="eyebrow">Computer Programmer</p>
+        <h1>Hi, I'm Kaais Taylor</h1>
+        <p class="hero-text">
+          I build clean, useful, and responsive websites and projects with a focus on practical problem solving.
+        </p>
+        <div class="hero-actions">
+          <a href="#projects" class="btn">View Projects</a>
+          <a href="#contact" class="btn btn-outline">Contact Me</a>
+        </div>
+      </div>
+    </section>
+
+    <section id="about" class="section">
+      <h2>About Me</h2>
+      <p>
+        I’m a programmer with experience and interest in web development, scripting, and building projects that solve real-world problems.
+        I enjoy learning new technologies, improving my skills through hands-on work, and creating websites that are simple, fast, and easy to use.
+      </p>
+    </section>
+
+    <section id="projects" class="section">
+      <h2>Projects</h2>
+      <div class="project-grid">
+        <article class="project-card">
+          <h3>Portfolio Website</h3>
+          <p>A personal website to showcase my background, skills, and selected work.</p>
+          <a href="#" target="_blank" rel="noopener noreferrer">GitHub</a>
+        </article>
+
+        <article class="project-card">
+          <h3>Task Tracker</h3>
+          <p>A simple productivity app for creating, completing, and managing daily tasks.</p>
+          <a href="#" target="_blank" rel="noopener noreferrer">GitHub</a>
+        </article>
+
+        <article class="project-card">
+          <h3>Password Generator</h3>
+          <p>A tool that creates secure passwords with options for length and character types.</p>
+          <a href="#" target="_blank" rel="noopener noreferrer">GitHub</a>
+        </article>
+      </div>
+    </section>
+
+    <section id="contact" class="section">
+      <h2>Contact Me</h2>
+      <p>If you'd like to get in touch, send me a message below.</p>
+
+      <form action="https://formspree.io/f/xvzylwke" method="POST" class="contact-form">
+        <div class="form-group">
+          <label for="name">Name</label>
+          <input type="text" id="name" name="name" required />
+        </div>
+
+        <div class="form-group">
+          <label for="email">Email</label>
+          <input type="email" id="email" name="email" required />
+        </div>
+
+        <div class="form-group">
+          <label for="message">Message</label>
+          <textarea id="message" name="message" rows="6" required></textarea>
+        </div>
+
+        <button type="submit" class="btn">Send Message</button>
+      </form>
+
+      <p class="direct-contact">
+        Or email me directly at
+        <a href="mailto:Kaaistaylor83@gmail.com">Kaaistaylor83@gmail.com</a>
+      </p>
+    </section>
+  </main>
+
+  <footer class="footer">
+    <p>© 2026 Kaais Taylor. All rights reserved.</p>
+  </footer>
+</body>
+</html>

@@ -1,0 +1,56 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+  <title>Task Tracker | Your Name</title>
+  <link rel="stylesheet" href="style.css" />
+  <link rel="stylesheet" href="task-tracker.css" />
+</head>
+<body>
+  <header class="header">
+    <nav class="navbar">
+      <a href="index.html" class="logo">Your Name</a>
+      <ul class="nav-links">
+        <li><a href="index.html#about">About</a></li>
+        <li><a href="index.html#projects">Projects</a></li>
+        <li><a href="index.html#contact">Contact</a></li>
+      </ul>
+    </nav>
+  </header>
+
+  <main>
+    <div class="container">
+      <h1>Task Tracker</h1>
+      <p class="subtitle">A simple task tracker with due dates — built with HTML, CSS, and JavaScript.</p>
+
+      <form id="task-form" class="task-form">
+        <div class="form-group">
+          <label for="task-input">Task</label>
+          <input type="text" id="task-input" placeholder="Enter a task" required />
+        </div>
+
+        <div class="form-group">
+          <label for="due-date-input">Due Date</label>
+          <input type="date" id="due-date-input" />
+        </div>
+
+        <button type="submit" class="btn">Add Task</button>
+      </form>
+
+      <h2>Tasks</h2>
+      <ul id="task-list" class="task-list"></ul>
+
+      <div class="actions">
+        <button id="clear-completed" class="btn btn-outline">Clear Completed</button>
+      </div>
+
+      <div class="back-link">
+        <a href="index.html">← Back to Portfolio</a>
+      </div>
+    </div>
+  </main>
+
+  <script src="task-tracker.js"></script>
+</body>
+</html>

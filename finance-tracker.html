@@ -4,10 +4,12 @@
   <meta charset="UTF-8" />
   <meta name="viewport" content="width=device-width, initial-scale=1.0" />
   <title>The Ultimate Budget | Kaais Taylor</title>
-  //fonts.googleapis.com">
-  //fonts.gstatic.com" crossorigin>
-  //fonts.googleapis.com/css2?family=Cormorant+Garamond:wght@500;600;700&family=Inter:wght@400;500;600;700&display=swap" rel="stylesheet">
-  " />
+
+  <link rel="preconnect" href="https://fonts.googleapis.com">
+  <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+  <link href="https://fonts.googleapis.com/css2?family=Cormorant+Garamond:wght@500;600;700&family=Inter:wght@400;500;600;700&display=swap" rel="stylesheet">
+
+  <link rel="stylesheet" href="finance-tracker.css" />
   <script src="https://cdn.jsdelivr.net/npm/chart.js"></script>
 </head>
 <body>
@@ -21,7 +23,7 @@
     <main class="dashboard">
       <section class="top-controls panel">
         <div class="control-group">
-          abel for="view-select">View</label>
+          <label for="view-select">View</label>
           <select id="view-select">
             <option value="annual">Annual</option>
             <option value="monthly">Monthly</option>
@@ -29,12 +31,12 @@
         </div>
 
         <div class="control-group">
-          abel for="year-select">Year</label>
+          <label for="year-select">Year</label>
           <select id="year-select"></select>
         </div>
 
         <div class="control-group" id="month-group">
-          abel for="month-select">Month</label>
+          <label for="month-select">Month</label>
           <select id="month-select">
             <option value="0">January</option>
             <option value="1">February</option>
@@ -74,12 +76,12 @@
       <section class="overview-grid">
         <div class="panel chart-panel">
           <div class="panel-title">Spending Breakdown</div>
-          anvas id="categoryChart"></canvas>
+          <canvas id="categoryChart"></canvas>
         </div>
 
         <div class="panel chart-panel">
           <div class="panel-title">Monthly Trend</div>
-          anvas id="trendChart"></canvas>
+          <canvas id="trendChart"></canvas>
         </div>
       </section>
 

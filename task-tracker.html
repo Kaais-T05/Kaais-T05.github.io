@@ -1,64 +1,42 @@
-<!DOCTYPE html>
-<html lang="en">
-<head>
-  <meta charset="UTF-8" />
-  <meta name="viewport" content="width=device-width, initial-scale=1.0" />
-  <title>Task Tracker | Kaais Taylor</title>
-  <link rel="stylesheet" href="style.css" />
-  <link rel="stylesheet" href="task-tracker.css" />
-</head>
-<body>
-  <header class="header">
-    <nav class="navbar">
-      <a href="index.html" class="logo">Kaais Taylor
-      </a>
-      <ul class="nav-links">
-        <li><a href="index.html#about">About</a></li>
-        <li><a href="index.html#projects">Projects</a></li>
-        <li><a href="index.html#contact">Contact</a></li>
-      </ul>
-    </nav>
-  </header>
+<main class="task-page">
+  <div class="task-shell">
+    <section class="hero">
+      <h1>Task Tracker</h1>
+      <p class="subtitle">TRACK TASKS, DEADLINES, AND PROGRESS IN ONE PLACE</p>
+    </section>
 
-  <main>
-  <div class="container">
-    <h1>Task Tracker</h1>
-    <p class="subtitle">A task tracker with due dates and status</p>
+    <section class="card">
+      <form id="task-form" class="task-form">
+        <div class="form-group">
+          <label for="task-input">Task</label>
+          <input type="text" id="task-input" placeholder="Enter a task" required />
+        </div>
 
+        <div class="form-group">
+          <label for="due-date-input">Due Date</label>
+          <input type="date" id="due-date-input" />
+        </div>
 
-    <form id="task-form" class="task-form">
-      <div class="form-group">
-        <label for="task-input">Task</label>
-        <input type="text" id="task-input" placeholder="Enter a task" required />
+        <button type="submit" class="btn">Add Task</button>
+      </form>
+    </section>
+
+    <section class="card">
+      <h2>Tasks</h2>
+
+      <div class="filters">
+        <button class="filter-btn active" data-filter="all">All</button>
+        <button class="filter-btn" data-filter="not-started">Not Started</button>
+        <button class="filter-btn" data-filter="in-progress">In Progress</button>
+        <button class="filter-btn" data-filter="completed">Completed</button>
       </div>
 
+      <ul id="task-list" class="task-list"></ul>
 
-      <div class="form-group">
-        <label for="due-date-input">Due Date</label>
-        <input type="date" id="due-date-input" />
+      <div class="actions">
+        <button id="clear-completed" class="btn btn-outline">Clear Completed</button>
       </div>
-
-
-      <button type="submit" class="btn">Add Task</button>
-    </form>
-
-
-    <h2>Tasks</h2>
-
-    <div class="filters">
-      <button class="filter-btn active" data-filter="all">All</button>
-      <button class="filter-btn" data-filter="not-started">Not Started</button>
-      <button class="filter-btn" data-filter="in-progress">In Progress</button>
-      <button class="filter-btn" data-filter="completed">Completed</button>
-    </div>
-
-    <ul id="task-list" class="task-list"></ul>
-
-
-    <div class="actions">
-      <button id="clear-completed" class="btn btn-outline">Clear Completed</button>
-    </div>
-
+    </section>
 
     <div class="back-link">
       <a href="index.html">← Back to Portfolio</a>

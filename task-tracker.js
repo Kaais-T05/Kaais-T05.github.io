@@ -1,7 +1,5 @@
-// Storage key
 const STORAGE_KEY = 'kaais-tasks';
 
-// DOM elements
 const taskForm = document.getElementById('task-form');
 const taskInput = document.getElementById('task-input');
 const dueDateInput = document.getElementById('due-date-input');
@@ -9,11 +7,9 @@ const taskList = document.getElementById('task-list');
 const clearCompletedBtn = document.getElementById('clear-completed');
 const filterBtns = document.querySelectorAll('.filter-btn');
 
-// State
 let tasks = [];
 let currentFilter = 'all';
 
-// Helpers
 function generateId() {
   return Date.now().toString(36) + Math.random().toString(36).slice(2, 8);
 }
@@ -41,14 +37,20 @@ function escapeHtml(str) {
     .replace(/'/g, '&#039;');
 }
 
+function formatDate(dateStr) {
+  if (!dateStr) return '';
+  const date = new Date(dateStr + 'T00:00:00');
+  return new Intl.DateTimeFormat('en-US', {
+    month: 'short',
+    day: 'numeric',
+    year: 'numeric'
+  }).format(date);
+}
+
 function getFilteredTasks() {
-  if (currentFilter === 'not-started') {
-    return tasks.filter(t => t.status === 'not-started');
-  } else if (currentFilter === 'in-progress') {
-    return tasks.filter(t => t.status === 'in-progress');
-  } else if (currentFilter === 'completed') {
-    return tasks.filter(t => t.status === 'completed');
-  }
+  if (currentFilter === 'not-started') return tasks.filter(t => t.status === 'not-started');
+  if (currentFilter === 'in-progress') return tasks.filter(t => t.status === 'in-progress');
+  if (currentFilter === 'completed') return tasks.filter(t => t.status === 'completed');
   return tasks;
 }
 
@@ -78,39 +80,36 @@ function renderTasks() {
   filtered.forEach(task => {
     const li = document.createElement('li');
     li.className = 'task-item';
-    if (task.status === 'completed') li.classList.add('completed');
     li.dataset.id = task.id;
-
-    const dueText = task.dueDate ? `Due: ${task.dueDate}` : '';
+    li.dataset.status = task.status;
 
     li.innerHTML = `
-      <div class="task-header">
-        <div class="task-text">${escapeHtml(task.text)}</div>
-        ${getStatusBadge(task.status)}
+      <div class="task-content">
+        <div class="task-header">
+          <div class="task-text">${escapeHtml(task.text)}</div>
+          ${getStatusBadge(task.status)}
+        </div>
+        ${task.dueDate ? `<div class="task-meta">Due: ${formatDate(task.dueDate)}</div>` : ''}
       </div>
-      ${dueText ? `<div class="task-meta">${dueText}</div>` : ''}
       <div class="task-actions">
-        <button class="btn-in-progress">In Progress</button>
-        <button class="btn-complete">Complete</button>
-        <button class="btn-delete">Delete</button>
+        <button class="btn-in-progress" type="button">In Progress</button>
+        <button class="btn-complete" type="button">Complete</button>
+        <button class="btn-delete" type="button">Delete</button>
       </div>
     `;
 
-    // In Progress
     li.querySelector('.btn-in-progress').addEventListener('click', () => {
       task.status = 'in-progress';
       saveTasksToStorage();
       renderTasks();
     });
 
-    // Complete
     li.querySelector('.btn-complete').addEventListener('click', () => {
       task.status = 'completed';
       saveTasksToStorage();
       renderTasks();
     });
 
-    // Delete
     li.querySelector('.btn-delete').addEventListener('click', () => {
       if (!confirm('Delete this task?')) return;
       tasks = tasks.filter(t => t.id !== task.id);
@@ -122,7 +121,6 @@ function renderTasks() {
   });
 }
 
-// Create task
 taskForm.addEventListener('submit', (e) => {
   e.preventDefault();
 
@@ -133,18 +131,16 @@ taskForm.addEventListener('submit', (e) => {
     id: generateId(),
     text,
     dueDate: dueDateInput.value || null,
-    status: 'not-started', // default status
+    status: 'not-started',
     createdAt: new Date().toISOString()
   };
 
   tasks.push(task);
   saveTasksToStorage();
-  taskInput.value = '';
-  dueDateInput.value = '';
+  taskForm.reset();
   renderTasks();
 });
 
-// Clear completed
 clearCompletedBtn.addEventListener('click', () => {
   if (!confirm('Clear all completed tasks?')) return;
   tasks = tasks.filter(t => t.status !== 'completed');
@@ -152,7 +148,6 @@ clearCompletedBtn.addEventListener('click', () => {
   renderTasks();
 });
 
-// Filters
 filterBtns.forEach(btn => {
   btn.addEventListener('click', () => {
     filterBtns.forEach(b => b.classList.remove('active'));
@@ -162,6 +157,5 @@ filterBtns.forEach(btn => {
   });
 });
 
-// Init
 tasks = loadTasksFromStorage();
 renderTasks();

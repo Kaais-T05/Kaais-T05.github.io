@@ -12,7 +12,11 @@ body {
   font-family: Arial, sans-serif;
   line-height: 1.6;
   color: #2E3238;
-  background: #F8F6F1;
+  background:
+    radial-gradient(circle at top left, rgba(92, 127, 163, 0.12), transparent 30%),
+    radial-gradient(circle at bottom right, rgba(92, 127, 163, 0.08), transparent 28%),
+    linear-gradient(180deg, #F8F6F1 0%, #F3F5F8 55%, #EAF0F6 100%);
+  min-height: 100vh;
 }
 
 a {
@@ -24,9 +28,9 @@ a {
   position: sticky;
   top: 0;
   z-index: 1000;
-  background: rgba(248, 246, 241, 0.95);
+  background: rgba(248, 246, 241, 0.88);
   border-bottom: 1px solid #D9D4CB;
-  backdrop-filter: blur(8px);
+  backdrop-filter: blur(10px);
 }
 
 .navbar {
@@ -125,18 +129,19 @@ a {
 }
 
 .project-card {
-  background: #FFFFFF;
+  background: rgba(255, 255, 255, 0.82);
   padding: 1.5rem;
   border-radius: 14px;
   border: 1px solid #D9D4CB;
-  box-shadow: 0 10px 25px rgba(46, 50, 56, 0.08);
+  box-shadow: 0 12px 28px rgba(46, 50, 56, 0.08);
+  backdrop-filter: blur(6px);
   transition: transform 0.2s ease, border-color 0.2s ease, box-shadow 0.2s ease;
 }
 
 .project-card:hover {
   transform: translateY(-4px);
   border-color: #5C7FA3;
-  box-shadow: 0 14px 30px rgba(46, 50, 56, 0.12);
+  box-shadow: 0 16px 34px rgba(46, 50, 56, 0.12);
 }
 
 .project-card h3 {
@@ -177,7 +182,7 @@ textarea {
   padding: 0.95rem 1rem;
   border: 1px solid #D9D4CB;
   border-radius: 10px;
-  background: #FFFFFF;
+  background: rgba(255, 255, 255, 0.9);
   color: #2E3238;
   font: inherit;
 }
